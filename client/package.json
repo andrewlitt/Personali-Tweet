@@ -1,7 +1,7 @@
 {
-  "name": "react-test",
+  "name": "CAZTConUHacks",
   "version": "1.0.0",
-  "description": "React app",
+  "description": "WebApp that analyzes a users online twitter personality",
   "main": "index.js",
   "scripts": {
     "production": "webpack -p",
