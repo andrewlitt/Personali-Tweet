@@ -20,15 +20,11 @@ var Home = React.createClass({
 		return (
 			<div className='mainContainer' style={transparentBg}>
 				<div className="topHalf">
-					<center>
-						<h1 className='logoText'>PersonaliTweet</h1>
-						<p>Fancy Motto</p>
+						<h1 className='logoText'>Personali-Tweet</h1>
 						<SearchContainer handleClick={this.handleClick} />
-					</center>
 				</div>
-				<div className=''>
+				<div className='bottomHalf'>
 					<center>
-						<p>Bottom div</p>
 						<Test isHidden={this.state.isHidden} />
 					</center>
 				</div>

@@ -5,8 +5,7 @@ var transparentBg = require('../styles').transparentBg;
 function Search(props){
 		return (
 			<div className="searchBar">
-				<input type='text' />
-				<button type='button' className='' onClick={() => props.handleClick()}> Search </button>
+				<input type='text' placeholder="Enter a Twitter Handle... ( no @ needed )" />
 			</div>
 		)
 };
