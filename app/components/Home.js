@@ -8,7 +8,7 @@ require("../styles/styletest.css");
 var Home = React.createClass({
 	getInitialState() {
 		return {isHidden:true};
-		
+
 	},
 	handleClick() {
 		this.setState({
@@ -17,23 +17,19 @@ var Home = React.createClass({
 	},
 	render() {
 		return (
-			<div className='text-center' style={transparentBg}> 
-				<div>
-					<h1 className='test'>PersonaliTweet</h1>
+				<div className="mainContainer">
+				<div className='topHalf'>
+					<h1>PersonaliTweet</h1>
 					<p className='lead'> Fancy Motto </p>
-				
 					<button type='button' className='' onClick={this.handleClick}> Search </button>
 				</div>
 				<div className=''>
-					Bottom div
+					<p>Bottom div</p>
 					<Test isHidden={this.state.isHidden} />
 				</div>
-			</div>
-
+				</div>
 		)
 	}
 
 });
-
-
 module.exports = Home;
