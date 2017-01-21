@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import {transparentBg} from '../styles';
+
+
 class Search extends Component {
 
 	constructor(props) {
@@ -7,7 +10,7 @@ class Search extends Component {
 	}
 
 	handleChange(event) {
-		
+		// TODO Call backend for autocomplete results
 	}
 
 	handleClick(event) {
