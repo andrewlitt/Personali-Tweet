@@ -1,14 +1,25 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var transparentBg = require('../styles').transparentBg;
+import React, {Component} from 'react';
+import {transparentBg} from '../styles';
 
-function Search(props){
+class Search extends Component {
+
+	constructor(props) {
+		super(props);
+	}
+
+	handleClick(event) {
+		console.log('click');
+	}
+
+	render() {
 		return (
 			<div>
 				<input type='text' />
-				<button type='button' className='' onClick={this.handleClick}> Search </button>
+				<button type='button' className='' onClick={this.handleClick.bind(this)}> Search </button>
 			</div>
-		)
+		);
+	}
+
 };
 
 
