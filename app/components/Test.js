@@ -2,7 +2,7 @@ var React = require('react');
 
 var Test = React.createClass({
 	render() {
-		return this.props.isHidden ? '' :(
+		return this.props.isHidden ? <div /> :(
 			<div> Test </div>
 		)
 	}

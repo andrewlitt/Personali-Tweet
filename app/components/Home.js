@@ -26,7 +26,7 @@ var Home = React.createClass({
 				</div>
 				<div className=''>
 					Bottom div
-					<Test props={this.state.isHidden} />
+					<Test isHidden={this.state.isHidden} />
 				</div>
 			</div>
 
