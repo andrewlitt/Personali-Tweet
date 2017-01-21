@@ -13,4 +13,3 @@ function Search(props){
 
 
 module.exports = Search;
-
