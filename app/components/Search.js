@@ -6,7 +6,7 @@ function Search(props){
 		return (
 			<div>
 				<input type='text' />
-				<button type='button' className='' onClick={this.handleClick}> Search </button>
+				<button type='button' className='' onClick={() => props.handleClick()}> Search </button>
 			</div>
 		)
 };
