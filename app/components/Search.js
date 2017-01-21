@@ -4,7 +4,7 @@ var transparentBg = require('../styles').transparentBg;
 
 function Search(props){
 		return (
-			<div>
+			<div className="searchBar">
 				<input type='text' />
 				<button type='button' className='' onClick={() => props.handleClick()}> Search </button>
 			</div>

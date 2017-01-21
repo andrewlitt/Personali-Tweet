@@ -19,7 +19,7 @@ var Home = React.createClass({
 	render() {
 		return (
 			<div className='mainContainer' style={transparentBg}>
-				<div>
+				<div className="topHalf">
 					<h1 className='logoText'>PersonaliTweet</h1>
 					<p>Fancy Motto</p>
 					<SearchContainer handleClick={this.handleClick} />
