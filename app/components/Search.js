@@ -34,4 +34,3 @@ class Search extends Component {
 
 
 module.exports = Search;
-

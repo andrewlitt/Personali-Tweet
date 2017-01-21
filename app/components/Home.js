@@ -9,7 +9,7 @@ require("../styles/styletest.css");
 var Home = React.createClass({
 	getInitialState() {
 		return {isHidden:true};
-		
+
 	},
 	handleClick() {
 		this.setState({
@@ -18,19 +18,21 @@ var Home = React.createClass({
 	},
 	render() {
 		return (
-			<div className='text-center' style={transparentBg}> 
-				<div>
-					<h1 className='test'>PersonaliTweet</h1>
-					<p className='lead'> Fancy Motto </p>
-					<SearchContainer handleClick={this.handleClick} /> 
-
+			<div className='mainContainer' style={transparentBg}>
+				<div className="topHalf">
+					<center>
+						<h1 className='logoText'>PersonaliTweet</h1>
+						<p>Fancy Motto</p>
+						<SearchContainer handleClick={this.handleClick} />
+					</center>
 				</div>
 				<div className=''>
-					Bottom div
-					<Test isHidden={this.state.isHidden} />
+					<center>
+						<p>Bottom div</p>
+						<Test isHidden={this.state.isHidden} />
+					</center>
 				</div>
 			</div>
-
 		)
 	}
 
