@@ -1,8 +1,9 @@
-var React = require('react');
-var transparentBg = require('../styles').transparentBg;
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-const Test = require('./Test')
+const React = require('react');
+const transparentBg = require('../styles').transparentBg;
+const ReactRouter = require('react-router');
+const Link = ReactRouter.Link;
+const Test = require('./Test');
+const SearchContainer = require('../containers/SearchContainer');
 require("../styles/styletest.css");
 
 var Home = React.createClass({
@@ -21,8 +22,8 @@ var Home = React.createClass({
 				<div>
 					<h1 className='test'>PersonaliTweet</h1>
 					<p className='lead'> Fancy Motto </p>
-				
-					<button type='button' className='' onClick={this.handleClick}> Search </button>
+					<SearchContainer handleClick={this.handleClick} /> 
+
 				</div>
 				<div className=''>
 					Bottom div
