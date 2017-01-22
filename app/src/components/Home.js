@@ -5,6 +5,7 @@ const Link = ReactRouter.Link;
 const Test = require('./Test');
 const SearchContainer = require('../containers/SearchContainer');
 const GraphContainer = require('../containers/GraphContainer');
+const Spinner = require('./Spinner');
 require("../styles/styletest.css");
 
 var Home = React.createClass({
@@ -14,6 +15,7 @@ var Home = React.createClass({
 			isHidden:true,
 			hasAnimated:false,
 			personalityData: {}
+			isLoading: false
 		};
 	},
 
@@ -25,9 +27,16 @@ var Home = React.createClass({
 
 	startAnimation(){
 		this.setState({
-			hasAnimated:true
+			hasAnimated:true,
+			isLoading: true
 		});
 	},
+
+	stopAnimation() {
+		this.setStae({
+			isLoading: false
+		})
+	}
 
 	updatePersonalityData(data) {
  		this.setState({
@@ -52,7 +61,11 @@ var Home = React.createClass({
 					/>
 				</div>
 				<div className={this.state.hasAnimated ? "appearText bottomHalf" : "bottomHalf"}>
-					<GraphContainer Data={this.state.personalityData} />
+					{
+						this.state.isLoading ? 
+							<Spinner /> : 
+							<GraphContainer Data={this.state.personalityData} />
+					}
 				</div>
 			</div>
 		)

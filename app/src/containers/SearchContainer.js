@@ -8,6 +8,7 @@ var SearchContainer = React.createClass({
 			<Search
 				updatePersonalityData={this.props.updatePersonalityData}
 				startAnimation={this.props.startAnimation}
+				stopAnimation={this.props.stopAnimation}
 				handleClick={this.props.handleClick}
 			/>
 		);
