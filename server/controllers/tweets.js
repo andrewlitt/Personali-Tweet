@@ -9,7 +9,7 @@ const twit = new twitter({
   	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-function getTweet(req, res, next){	
+function getTweet(req, res, next){
 	let newTweets;
 
   	const params = {
@@ -18,7 +18,6 @@ function getTweet(req, res, next){
         exclude_replies: true,
         include_rts: false
     };
-
     twit.get('statuses/user_timeline', params, (error, tweets) => {
         if(error) {
             res.status(400).send(error);

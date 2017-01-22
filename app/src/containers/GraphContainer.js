@@ -7,8 +7,6 @@ const CloudGraph = require('../components/CloudGraph');
 
 const GraphContainer = React.createClass({
     render () {
-        console.log(this.props.Data);
-
         return Object.keys(this.props.Data).length > 0 ? (
             <div className="graphContainer">
                 <RadarGraph data={this.props.Data.graphs.taxData} />
