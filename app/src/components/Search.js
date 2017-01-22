@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {transparentBg} from '../styles';
 
 
 class Search extends Component {
@@ -8,7 +7,8 @@ class Search extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			users: []
+			users: [],
+			inputText: []
 		}
 	}
 
@@ -29,30 +29,46 @@ class Search extends Component {
 					console.error(error);
 				});
 		}
+		this.setState({inputText:event.target.value});
+	}
+	handleClick(event) {
+		const url = `/api/user/${event.target.id}`;
+		console.log(url);
+		this.setState({
+			users: [],
+			inputText: [],
+		});
 	}
 
 	render() {
 		return (
 			<div className='searchBar'>
 				<input
+				  value={this.state.inputText}
 					type='text'
 					placeholder="Enter a Twitter Handle... ( no @ needed )"
 					onChange={this.handleChange.bind(this)}
 				/>
-				{this.state.users.map((user) => {
-					return (
-						<div>
-							<p>{user.name}</p>
-							<p>{user.username}</p>
-							<img src={user.picture} />
-						</div>
-					);
-				})}
+				<div className="results">
+					{this.state.users.map((user) => {
+						return (
+							<div className="searchResult"
+									 key={user.username}
+									 onClick={this.handleClick.bind(this)}
+									 id={user.username}
+							>
+								<img src={user.picture} />
+								<div>
+									<h1>{user.name}</h1>
+									<p>@{user.username}</p>
+								</div>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		);
 	}
-
 };
-
 
 module.exports = Search;

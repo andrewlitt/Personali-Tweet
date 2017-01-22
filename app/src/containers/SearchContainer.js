@@ -6,9 +6,7 @@ var SearchContainer = React.createClass({
 		return (
 					<Search handleClick={this.props.handleClick}/>
 			)
-
 	}
-
 })
 
 module.exports = SearchContainer;

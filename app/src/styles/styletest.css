@@ -55,7 +55,7 @@ h1,h2,h3,p{
   outline: none;
   -webkit-appearance: none;
   height: 40px;
-  border: 3px #FFC679 solid;
+  border: 5px #FFC679 solid;
   border-radius: 3px;
   font-family: 'Open Sans', serif;
   font-weight: lighter;
@@ -63,11 +63,38 @@ h1,h2,h3,p{
   padding: 4px;
   padding-left: 7px;
   padding-right: 7px;
-  overflow-x: scroll;
 }
 .searchBar input[type=text]:focus{
 	border-color: #FFA329;
 	transition:all 0.3s ease
+}
+.searchResult{
+	display: flex;
+	flex-direction: row;
+	font-family: "Open Sans";
+	padding: 12px;
+	background-color: white;
+	width: 500px;
+}
+.searchResult:hover{
+	background-color: lightgrey;
+	cursor: pointer;
+}
+.results{
+	position: fixed;
+}
+.searchResult img{
+	border-radius: 3px;
+	margin-right: 5px;
+}
+.searchResult h1{
+
+	font-size: 12pt;
+	color: black;
+}
+.searchResult p{
+	font-size: 10pt;
+	color: grey;
 }
 .bottomHalf{
 	background-color: #f5f5f5;
