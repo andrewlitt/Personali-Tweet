@@ -9,9 +9,7 @@ function user(req, res) {
 		extract: 'authors,concepts,dates,doc-emotion,entities,feeds,keywords,pub-date,relations,typed-rels, doc-sentiment,taxonomy,title',
 	  	text: req.tweets
 	};
-
-	console.log(req.tweets.length);
-
+	
 	alchemy_language.combined(params, function (err, response) {
 	  	if (err) {
 	  		console.log(err);
