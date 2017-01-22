@@ -14,7 +14,7 @@ var Home = React.createClass({
 		return {
 			isHidden:true,
 			hasAnimated:false,
-			personalityData: {}
+			personalityData: {},
 			isLoading: false
 		};
 	},
@@ -33,10 +33,10 @@ var Home = React.createClass({
 	},
 
 	stopAnimation() {
-		this.setStae({
+		this.setState({
 			isLoading: false
 		})
-	}
+	},
 
 	updatePersonalityData(data) {
  		this.setState({
@@ -56,6 +56,7 @@ var Home = React.createClass({
 					<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
 					<SearchContainer 
 						startAnimation={this.startAnimation}
+						stopAnimation={this.stopAnimation}
 						handleClick={this.handleClick}
 						updatePersonalityData={this.updatePersonalityData}
 					/>
