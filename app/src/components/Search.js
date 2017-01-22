@@ -36,14 +36,31 @@ class Search extends Component {
 		}
 		this.setState({inputText:event.target.value});
 	}
+
 	handleClick(event) {
-		const url = `/api/user/${event.target.id}`;
-		console.log(url);
+		const username = event.currentTarget.id;
+		const url = `/api/user/${username}`;
 		this.props.startAnimation();
+
+		const user = this.state.users.filter((user) => {
+			return user.username === username;
+		})[0];
+
 		this.setState({
 			users: [],
-			inputText: [],
+			inputText: []
 		});
+
+		axios.get(url)
+			.then((response) => {
+				if(response) {
+					this.props.updatePersonalityData(Object.assign(response.data, user));
+				}
+				this.props.stopAnimation();
+			})	
+			.catch((error) => {	
+				console.error(error);
+			})
 	}
 
 	render() {
@@ -59,9 +76,9 @@ class Search extends Component {
 					{this.state.users.map((user) => {
 						return (
 							<div className="searchResult"
-									 key={user.username}
-									 onClick={this.handleClick.bind(this)}
-									 id={user.username}
+								key={user.username}
+								onClick={this.handleClick.bind(this)}
+								id={user.username}
 							>
 								<img src={user.picture} />
 								<div>

@@ -147,17 +147,53 @@ h1,h2,h3,p{
 }
 .bottomHalf{
 	opacity: 0;
+	margin-top: 60px;
 }
 .graphContainer{
-  margin: 25px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: wrap;
 	overflow: visible;
 	align-items:center;
-	justify-content: center;
+	justify-content:space-around;
 	font-family: "Montesarrat";
+	position: relative;
+	padding-top: 20px;
+}
+.graphContainer h1{
+	font-family: "Montserrat";
+	text-align: center;
+	font-size: 20pt;
+	position: absolute;
+	top: 0px;
 }
 .recharts-legend-item-text{
 	font-family: "Open Sans" !important;
+	font-size: 10pt;
+}
+.recharts-text{
+	font-family: "Open Sans" !important;
+	font-size: 10pt;
+}
+.graph{
+	width: 40%;
+	height: 300px;
+	border-radius: 3px;
+	margin-top: 55px;
+}
+.graph h3{
+	text-align: center;
+	color: grey;
+	font-family: "Montserrat";
+}
+.fakeTweetContainer{
+	
+}
+
+.spinner {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+	transition: 2s;
 }
