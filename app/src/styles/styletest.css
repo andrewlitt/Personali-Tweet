@@ -225,3 +225,11 @@ h1,h2,h3,p{
 	font-size: 10pt;
 	color: grey;
 }
+
+.spinner {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+	transition: 2s;
+}

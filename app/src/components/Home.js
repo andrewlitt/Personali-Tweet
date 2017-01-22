@@ -5,7 +5,7 @@ const Link = ReactRouter.Link;
 const Test = require('./Test');
 const SearchContainer = require('../containers/SearchContainer');
 const GraphContainer = require('../containers/GraphContainer');
-const FakeTweet =require('../containers/FakeTweet');
+const Spinner = require('./Spinner');
 
 require("../styles/styletest.css");
 
@@ -15,7 +15,8 @@ var Home = React.createClass({
 		return {
 			isHidden:true,
 			hasAnimated:false,
-			personalityData: {}
+			personalityData: {},
+			isLoading: false
 		};
 	},
 
@@ -27,8 +28,15 @@ var Home = React.createClass({
 
 	startAnimation(){
 		this.setState({
-			hasAnimated:true
+			hasAnimated:true,
+			isLoading: true
 		});
+	},
+
+	stopAnimation() {
+		this.setState({
+			isLoading: false
+		})
 	},
 
 	updatePersonalityData(data) {
@@ -41,23 +49,27 @@ var Home = React.createClass({
 	render() {
 		return (
 			<div className='mainContainer' style={transparentBg}>
-					<div className={this.state.hasAnimated ? "topHalf shrinkFrame" : "topHalf"}>
-						<ul className="nav">
-							<li><a href="#">ABOUT</a></li>
-							<li><a target="_blankhttps://github.com/zackharley/ConUHacks">GITHUB</a></li>
-						</ul>
-						<h1 className={this.state.hasAnimated ? "logoText moveText" : "logoText"}>Personali-<span style={{fontFamily: 'Pacifico'}}>Tweet</span></h1>
-						<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
-						<SearchContainer
-							startAnimation={this.startAnimation}
-							handleClick={this.handleClick}
-							updatePersonalityData={this.updatePersonalityData}
-						/>
-					</div>
-					<div className={this.state.hasAnimated ? "appearText bottomHalf" : "bottomHalf"}>
-						<GraphContainer Data={this.state.personalityData} />
-						<FakeTweet picture={this.state.personalityData.picture} name={this.state.personalityData.name} username={this.state.personalityData.username} tweet={this.state.personalityData.tweet} />
-					</div>
+				<div className={this.state.hasAnimated ? "topHalf shrinkFrame" : "topHalf"}>
+					<ul className="nav">
+						<li><a href="#">ABOUT</a></li>
+						<li><a target="_blankhttps://github.com/zackharley/ConUHacks">GITHUB</a></li>
+					</ul>
+					<h1 className={this.state.hasAnimated ? "logoText moveText" : "logoText"}>Personali-<span style={{fontFamily: 'Pacifico'}}>Tweet</span></h1>
+					<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
+					<SearchContainer
+						startAnimation={this.startAnimation}
+						stopAnimation={this.stopAnimation}
+						handleClick={this.handleClick}
+						updatePersonalityData={this.updatePersonalityData}
+					/>
+				</div>
+				<div className={this.state.hasAnimated ? "appearText bottomHalf" : "bottomHalf"}>
+					{
+						this.state.isLoading ?
+							<Spinner /> :
+							<GraphContainer Data={this.state.personalityData} />
+					}
+				</div>
 			</div>
 		)
 	}
