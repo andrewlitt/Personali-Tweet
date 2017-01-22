@@ -93,6 +93,7 @@ var GraphContainer = React.createClass({
 	render () {
   	return (
     	<div className="graphContainer">
+				<h1>A Tweet Analysis of @USER</h1>
     		<RadarGraph data={Data.taxData} />
     		<PieGraph data={Data.emotionData}/>
     		<RadialGraph data={Data.conceptData}/>

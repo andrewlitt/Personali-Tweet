@@ -10,7 +10,7 @@ const twit= new twitter({
 const emojiStrip = require('emoji-strip');
 
 
-function getTweet(req, res, next){	
+function getTweet(req, res, next){
 	var newTweets;
   params = {
             screen_name: req.params.user,
@@ -26,7 +26,7 @@ function getTweet(req, res, next){
                 newTweets += tweets[i].text;
                 newTweets += "\n";
             }
-	
+
         try {
             newTweets = emojiStrip(allTweets);
             newTweets = allTweets.replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, "");
@@ -40,7 +40,7 @@ function getTweet(req, res, next){
         }
 
 	req.tweets = newTweets;
-	next();	
+	next();
 });
 }
-modules.exports = getTweet;
+module.exports = getTweet;
