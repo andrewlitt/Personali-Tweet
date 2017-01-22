@@ -4,7 +4,7 @@ const Search = require('../components/Search');
 var SearchContainer = React.createClass({
 	render(){
 		return (
-					<Search handleClick={this.props.handleClick}/>
+					<Search startAnimation={this.props.startAnimation} handleClick={this.props.handleClick}/>
 			)
 	}
 })

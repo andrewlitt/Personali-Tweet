@@ -9,25 +9,35 @@ require("../styles/styletest.css");
 
 var Home = React.createClass({
 	getInitialState() {
-		return {isHidden:true};
-
+		return {
+			isHidden:true,
+			hasAnimated:false
+		};
 	},
 	handleClick() {
 		this.setState({
 			isHidden: !this.state.isHidden
 		});
 	},
+	startAnimation(){
+		this.setState({
+			hasAnimated:true
+		});
+	},
 	render() {
 		return (
 			<div className='mainContainer' style={transparentBg}>
-				<div className="topHalf">
-						<h1 className='logoText'>Personali-Tweet</h1>
-						<SearchContainer handleClick={this.handleClick} />
+				<div className={this.state.hasAnimated ? "topHalf shrinkFrame" : "topHalf"}>
+						<ul className="nav">
+								<li><a href="#">ABOUT</a></li>
+								<li><a target="_blankhttps://github.com/zackharley/ConUHacks">GITHUB</a></li>
+						</ul>
+						<h1 className={this.state.hasAnimated ? "logoText moveText" : "logoText"}>Personali-<span style={{fontFamily: 'Pacifico'}}>Tweet</span></h1>
+						<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
+						<SearchContainer startAnimation={this.startAnimation} handleClick={this.handleClick} />
 				</div>
-				<div className='bottomHalf'>
-					<center>
+				<div className={this.state.hasAnimated ? "appearText bottomHalf" : "bottomHalf"}>
 						<GraphContainer />
-					</center>
 				</div>
 			</div>
 		)

@@ -23,7 +23,7 @@
 			"relevance": {keywords.relevance}	float
 		}
 	],
-	"graph5": [
+	"radarData": [
 		{
 			"emotion": "anger",					set
 			"score": {docEmotions.anger}		float

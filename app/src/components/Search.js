@@ -39,6 +39,7 @@ class Search extends Component {
 	handleClick(event) {
 		const url = `/api/user/${event.target.id}`;
 		console.log(url);
+		this.props.startAnimation();
 		this.setState({
 			users: [],
 			inputText: [],
