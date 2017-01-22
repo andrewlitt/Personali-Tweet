@@ -77,7 +77,7 @@ const Data = {
 var GraphContainer = React.createClass({
 	render () {
   	return (
-    	<div>
+    	<div className="graphContainer">
     		<RadarGraph data={Data.taxData} />
     		<PieGraph data={Data.emotionData}/>
     		<RadialGraph data={Data.conceptData}/>

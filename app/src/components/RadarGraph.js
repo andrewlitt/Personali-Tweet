@@ -16,6 +16,4 @@ var RadarGraph = React.createClass({
     );
   }
 })
-
-
 module.exports = RadarGraph;
