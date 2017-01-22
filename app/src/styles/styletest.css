@@ -160,6 +160,9 @@ h1,h2,h3,p{
 	position: relative;
 	padding-top: 20px;
 }
+.clouds{
+	padding-bottom: 30px;
+}
 .graphContainer h1{
 	font-family: "Montserrat";
 	text-align: center;
@@ -200,7 +203,9 @@ h1,h2,h3,p{
   margin: 10px 5px;
   padding: 0 16px 16px 16px;
   max-width: 468px;
-	margin: auto;
+	position: absolute;
+	bottom: 0;
+	margin-left: auto;
 }
 
 .fakeTweetContainer p {
@@ -210,20 +215,26 @@ h1,h2,h3,p{
 }
 .fakeTweetHeader img{
 	border-radius: 3px;
+	display: inline-block;
 	margin-right: 5px;
 }
-.fakeTweetHeader h1{
-	font-size: 12pt;
-	color: black;
-}
 .fakeTweetHeader h2{
-	font-size: 10pt;
-	color: grey;
+	font-size: 12pt;
 }
-
+.fakeTweetHeader{
+	padding: 15px;
+}
+.grey{
+	color: grey;
+	font-size: 10pt;
+}
+.fakeTweetUserNames{
+	display: inline-block;
+}
 .fakeTweetHeader p{
 	font-size: 10pt;
 	color: grey;
+	padding: 10px;
 }
 
 .spinner {
