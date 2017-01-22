@@ -18,9 +18,11 @@ class Search extends Component {
 		if(event.target.value.length > 0) {
 			axios.get(url)
 				.then((response) => {
-					this.setState({
-						users: response.data
-					});
+					if(response) {
+						this.setState({
+							users: response.data
+						});
+					}
 				})
 				.catch((error) => {
 					this.setState({
@@ -28,6 +30,10 @@ class Search extends Component {
 					});
 					console.error(error);
 				});
+		} else {
+			this.setState({
+				users: []
+			});
 		}
 	}
 
