@@ -14,13 +14,14 @@ class Search extends Component {
 
 	handleChange(event) {
 		const url = `/api/search?q=${event.target.value}`;
-		console.log(url);
 		if(event.target.value.length > 0) {
 			axios.get(url)
 				.then((response) => {
-					this.setState({
-						users: response.data
-					});
+					if(response) {
+						this.setState({
+							users: response.data
+						});
+					}
 				})
 				.catch((error) => {
 					this.setState({
@@ -28,6 +29,10 @@ class Search extends Component {
 					});
 					console.error(error);
 				});
+		} else {
+			this.setState({
+				users: []
+			});
 		}
 		this.setState({inputText:event.target.value});
 	}
