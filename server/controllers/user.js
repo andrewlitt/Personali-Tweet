@@ -9,7 +9,7 @@ function user(req, res) {
 		extract: 'authors,concepts,dates,doc-emotion,entities,feeds,keywords,pub-date,relations,typed-rels, doc-sentiment,taxonomy,title',
 	  	text: req.tweets
 	};
-	
+
 	alchemy_language.combined(params, function (err, response) {
 	  	if (err) {
 	  		console.log(err);
@@ -56,7 +56,7 @@ function user(req, res) {
 	    				return {
 	    					name: entry.text,
 	    					relevance: parseFloat(entry.relevance),
-	    					fille: conceptColours[index]
+	    					fill: conceptColours[index]
 	    				}
 	    			}),
 	    			taxData: response.taxonomy.map((entry) =>{
