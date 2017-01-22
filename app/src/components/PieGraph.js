@@ -7,7 +7,7 @@ const {PieChart, Pie, Legend, Cell} = require('recharts');
 var PieGraph = React.createClass({
 	render () {
   	return (
-  		<PieChart width={730} height={210}>
+  		<PieChart width={700} height={300}>
 		  <Pie data={this.props.data} cx="50%" cy="50%" outerRadius={80} label>
 		    {
 		      this.props.data.map((entry, index) => (
