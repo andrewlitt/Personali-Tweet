@@ -6,9 +6,9 @@ var FakeTweet = React.createClass({
       <div className="fakeTweetContainer">
 			<div className="fakeTweetHeader">
 				<img src={this.props.picture}/>
-				<div>
-					<h1>{this.props.name}</h1>
-					<h2>@{this.props.username}</h2>
+				<div className="fakeTweetUserNames">
+					<h2>{this.props.name}</h2>
+					<h2 className="grey">@{this.props.username}</h2>
 				</div>
 			</div>
 			<p>{this.props.tweet}</p>

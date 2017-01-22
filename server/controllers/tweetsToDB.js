@@ -9,17 +9,15 @@ function tweetsToDB(req, res, next) {
 		name: user,
 		tweets: req.tweets
 	};
-
-	console.log(dataToSubmit);
 	
 	const newUser = new User(dataToSubmit);
-
-	newUser.save(function(err){
+	
+	User.findOneAndUpdate({name: user}, dataToSubmit, {upsert: true}, (err) => {
 		if(err) {
 			res.status(500).send(err);
 		} else {
-			console.log("User saved successfully!");
-			next();
+			console.log('User saved successfully!');
+			res.next();
 		}
 	});
 

@@ -10,8 +10,6 @@ function user(req, res) {
 	  	text: req.tweets
 	};
 
-	console.log(req.tweets.length);
-
 	alchemy_language.combined(params, function (err, response) {
 	  	if (err) {
 	  		console.log(err);
@@ -58,7 +56,7 @@ function user(req, res) {
 	    				return {
 	    					name: entry.text,
 	    					relevance: parseFloat(entry.relevance),
-	    					fille: conceptColours[index]
+	    					fill: conceptColours[index]
 	    				}
 	    			}),
 	    			taxData: response.taxonomy.map((entry) =>{

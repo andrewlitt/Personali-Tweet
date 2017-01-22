@@ -8,12 +8,14 @@ const rotate = word => (Math.random()*90 - 45);
 var CloudGraph = React.createClass({
 	render () {
   	return (
+			<div className="clouds">
     	 <WordCloud
 		    data={this.props.data}
 		    fontSizeMapper={fontSizeMapper}
 		    rotate={rotate}
 			width={700}
 		  />
+		</div>
     );
   }
 });
