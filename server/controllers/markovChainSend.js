@@ -1,5 +1,4 @@
 const MarkovChain = require('markovchain');
-const fs = require('fs');
 
 function markov(req, res) {
 	const quotes = new MarkovChain(req.tweets);
