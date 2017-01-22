@@ -1,7 +1,8 @@
 const React = require('react');
 const RadarGraph = require('../components/RadarGraph');
 const PieGraph = require('../components/PieGraph');
-const RadialGraph = require('../components/RadialGraph')
+const RadialGraph = require('../components/RadialGraph');
+const BarGraph = require('../components/BarGraph');
 
 const Data = {
 		"taxData": [
@@ -71,9 +72,23 @@ const Data = {
             relevance: 0.505722,
             fill: '#d0ed57'
         }
-    ]
+    ],
+    sentimentData: [
+      {
+	      	name: 'Purely Positive Sentiment',
+	      	score: 1,
+	      	fill:'#00d10d'
+      },
+      {
+      		name: 'Purely Negative Sentiment',
+      		score: -1,
+      		fill:'#ff0400'},
+      {
+      		name: 'Sample Average Sentiment',
+      		score: -0.314165,
+      		fill:'#fff200'}
+      ]
 	};
-
 var GraphContainer = React.createClass({
 	render () {
   	return (
@@ -81,6 +96,7 @@ var GraphContainer = React.createClass({
     		<RadarGraph data={Data.taxData} />
     		<PieGraph data={Data.emotionData}/>
     		<RadialGraph data={Data.conceptData}/>
+    		<BarGraph data={Data.sentimentData}/>
     	</div>
     );
   }
