@@ -10,7 +10,7 @@ var RadialGraph = React.createClass({
 	render () {
   	return (
             <div className="graph">
-                <h3>Plot Title</h3>
+                <h3>Key Concepts</h3>
                 <ResponsiveContainer width={"100%"} height="90%">
               	   <RadialBarChart outerRadius={'70%'} barSize={10} data={this.props.data}>
           		        <RadialBar minAngle={15} label background clockWise={true} dataKey='relevance'/>
