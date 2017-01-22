@@ -20,5 +20,4 @@ router.get('/api/user/:user', user);
 
 router.get('/api/search', search);
 
-
 module.exports = router;

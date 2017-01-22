@@ -36,14 +36,23 @@ class Search extends Component {
 		}
 		this.setState({inputText:event.target.value});
 	}
+
 	handleClick(event) {
-		const url = `/api/user/${event.target.id}`;
-		console.log(url);
+		const url = `/api/user/${event.currentTarget.id}`;
 		this.props.startAnimation();
 		this.setState({
 			users: [],
 			inputText: [],
 		});
+		axios.get(url)
+			.then((response) => {
+				if(response) {
+					this.props.updatePersonalityData(response.data);
+				}
+			})	
+			.catch((error) => {	
+				console.error(error);
+			})
 	}
 
 	render() {
