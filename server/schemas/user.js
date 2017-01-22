@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
 	name: String,
-	tweet: String
+	tweets: String
 });
 
 const User = mongoose.model('User', userSchema);

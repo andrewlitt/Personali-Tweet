@@ -4,11 +4,15 @@ const User = require('./../schemas/user');
 
 function tweetsToDB(req, res, next) {
 	const user = req.params.user;
-	
-	const newUser = new User({
+
+	const dataToSubmit = {
 		name: user,
 		tweets: req.tweets
-	});
+	};
+
+	console.log(dataToSubmit);
+	
+	const newUser = new User(dataToSubmit);
 
 	newUser.save(function(err){
 		if(err) {
