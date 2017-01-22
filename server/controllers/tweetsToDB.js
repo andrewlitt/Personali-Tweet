@@ -5,4 +5,4 @@ function tweetsToDB(req, res, next) {
 	// Store req.tweets to db, then call next when successful
 }
 
-module.exports = tweetsFromDB;
+module.exports = tweetsToDB;
