@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const User = require('./db');
+const db = require('./db');
+const User = require('./../schemas/user');
 
 function tweetsToDB(req, res, next) {
 	const user = req.params.user;
@@ -10,12 +11,14 @@ function tweetsToDB(req, res, next) {
 	});
 
 	newUser.save(function(err){
-
-	if(err) res.status(500).send(err);
-		console.log("User saved successfully!");
+		if(err) {
+			res.status(500).send(err);
+		} else {
+			console.log("User saved successfully!");
+			next();
+		}
 	});
 
-	next();
 }
 
 

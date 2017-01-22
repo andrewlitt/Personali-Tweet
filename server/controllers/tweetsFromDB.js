@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-var User = require('./db');
+const db = require('./db');
+const User = require('./../schemas/user');
 
 function tweetsFromDB(req, res, next) {
 	const user = req.params.user;
