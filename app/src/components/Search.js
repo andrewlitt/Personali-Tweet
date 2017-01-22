@@ -47,6 +47,7 @@ class Search extends Component {
 		axios.get(url)
 			.then((response) => {
 				if(response) {
+					console.log(response);
 					this.props.updatePersonalityData(response.data);
 				}
 			})	

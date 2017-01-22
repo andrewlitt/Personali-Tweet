@@ -51,7 +51,7 @@ var Home = React.createClass({
 						/>
 				</div>
 				<div className={this.state.hasAnimated ? "appearText bottomHalf" : "bottomHalf"}>
-						<GraphContainer data={this.state.personalityData} />
+						<GraphContainer Data={this.state.personalityData} />
 				</div>
 			</div>
 		)
