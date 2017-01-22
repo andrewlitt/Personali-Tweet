@@ -2,7 +2,7 @@ const React = require('react');
 const {PieChart, Pie, Legend, Cell} = require('recharts');
  
   const data = [0.8, 0.1 , 0.4, 0.6, 0.7];
-  const colors = ["#ef0000", "#12961a", "#510f6d", "#f6ff02", "#0020d6"]
+  const colors = ["#ef0000", "#12961a", "#510f6d", "#cc00cc", "#0020d6"]
 
 var PieGraph = React.createClass({
 	render () {
