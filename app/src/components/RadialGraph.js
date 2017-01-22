@@ -6,6 +6,7 @@ const {RadialBarChart, RadialBar, Legend,ResponsiveContainer} = require('rechart
   	left: "75%",
   	lineHeight: '30px'
   };
+
 var RadialGraph = React.createClass({
 	render () {
   	return (

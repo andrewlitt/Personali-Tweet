@@ -208,6 +208,7 @@ h1,h2,h3,p{
 	bottom: 0;
 	margin-left: auto;
 	min-width: 350px;
+	z-index: 2;
 }
 
 .fakeTweetContainer p {

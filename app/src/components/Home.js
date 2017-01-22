@@ -61,8 +61,7 @@ var Home = React.createClass({
 			<div className='mainContainer' style={transparentBg}>
 				<div className={this.state.hasAnimated ? "topHalf shrinkFrame" : "topHalf"}>
 					<ul className="nav">
-						<li><a href="#">ABOUT</a></li>
-						<li><a target="_blankhttps://github.com/zackharley/ConUHacks">GITHUB</a></li>
+						<li><a target="_blank" href="https://github.com/zackharley/ConUHacks">GITHUB</a></li>
 					</ul>
 					<h1 className={this.state.hasAnimated ? "logoText moveText" : "logoText"}>Personali-<span style={{fontFamily: 'Pacifico'}}>Tweet</span></h1>
 					<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
