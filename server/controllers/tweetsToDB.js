@@ -17,7 +17,7 @@ function tweetsToDB(req, res, next) {
 			res.status(500).send(err);
 		} else {
 			console.log('User saved successfully!');
-			res.next();
+			next();
 		}
 	});
 
