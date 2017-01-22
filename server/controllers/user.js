@@ -1,9 +1,5 @@
 const AlchemyLanguageV1 = require('watson-developer-cloud/alchemy-language/v1');
 
-if(!process.env.ALCHEMY_API_KEY){
-var env = require('./env.js');
-}
-
 const alchemy_language = new AlchemyLanguageV1({
   api_key: process.env.ALCHEMY_API_KEY
 });
