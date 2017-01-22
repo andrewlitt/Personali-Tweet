@@ -13,7 +13,7 @@ const client = new Twitter({
 function search(req, res) {
 	const params = {
 		q: req.query.q,
-		count: 5
+		count: 4
 
 	};
 

@@ -4,7 +4,7 @@ const ReactRouter = require('react-router');
 const Link = ReactRouter.Link;
 const Test = require('./Test');
 const SearchContainer = require('../containers/SearchContainer');
-const D3Container = require('../containers/D3Container');
+const GraphContainer = require('../containers/GraphContainer');
 require("../styles/styletest.css");
 
 var Home = React.createClass({
@@ -38,8 +38,7 @@ var Home = React.createClass({
 				</div>
 				<div className='bottomHalf'>
 					<center>
-						<Test isHidden={this.state.isHidden} />
-						<D3Container isHidden={this.state.isHidden} />
+						<GraphContainer />
 					</center>
 				</div>
 			</div>
