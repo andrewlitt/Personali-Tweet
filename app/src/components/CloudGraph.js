@@ -12,6 +12,7 @@ var CloudGraph = React.createClass({
 		    data={this.props.data}
 		    fontSizeMapper={fontSizeMapper}
 		    rotate={rotate}
+			width={700}
 		  />
     );
   }

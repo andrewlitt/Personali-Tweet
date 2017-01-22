@@ -4,7 +4,7 @@ const PieGraph = require('../components/PieGraph');
 const RadialGraph = require('../components/RadialGraph');
 const BarGraph = require('../components/BarGraph');
 const CloudGraph = require('../components/CloudGraph');
-const FakeTweet = require('./FakeTweet');
+const FakeTweet = require('../components/FakeTweet');
 
 const GraphContainer = React.createClass({
     render () {
@@ -15,7 +15,7 @@ const GraphContainer = React.createClass({
                 <RadialGraph data={this.props.Data.graphs.conceptData}/>
                 <BarGraph data={this.props.Data.graphs.sentimentData}/>
                 <CloudGraph data={this.props.Data.graphs.keywordData}/>
-				<FakeTweet picture={this.props.Data.picture} name={this.props.Data.name} username={this.props.Data.username} tweet={this.props.Data.tweet} />
+								<FakeTweet picture={this.props.Data.picture} name={this.props.Data.name} username={this.props.Data.username} tweet={this.props.Data.tweet} />
             </div>
         ) : <div />;
     }

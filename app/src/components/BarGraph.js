@@ -6,14 +6,13 @@ var BarGraph = React.createClass({
 	render () {
   	return (
 			<div className="graph">
-			    <h3>Plot Title</h3>
+			    <h3>Average Sentiment</h3>
 					<ResponsiveContainer width={"100%"} height="90%">
 				    	<BarChart data={this.props.data}
 				            margin={{top: 5, right: 30, left: 20, bottom: 5}} layout='vertical'>
 					       <XAxis type="number"/>
 					       <YAxis type="category" dataKey="name"/>
 					       <ReferenceLine y={0} stroke='#000'/>
-					       <Legend />
 					       <Bar dataKey="score"  />
 				      </BarChart>
 					</ResponsiveContainer>
