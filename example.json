@@ -1,0 +1,49 @@
+{
+	"graph1": [
+		{
+			"sentiment": {docSentiment.type},   string
+			"score": {docSentiment.score}		float
+		}
+	],
+	"graph2": [
+		{
+			"concept": {concepts.text},			string
+			"relevance": {concepts.relevance}	float
+		}
+	],
+	"graph3": [
+		{
+			"label": {taxonomy.label},			string
+			"score": {taxonomy.score}			float
+		}
+	],
+	"graph4": [
+		{
+			"keywords": {keywords.text},		string	
+			"relevance": {keywords.relevance}	float
+		}
+	],
+	"radarData": [
+		{
+			"emotion": "anger",					set
+			"score": {docEmotions.anger}		float
+		},
+		{
+			"emotion": "disgust",				set			
+			"score": {docEmotions.disgust}		float
+		},
+		{
+			"emotion": "fear",					set
+			"score": {docEmotions.fear}			float
+		},
+		{
+			"emotion": "joy",					set
+			"score": {docEmotions.joy}			float
+		},
+		{
+			"emotion": "sadness",				set
+			"score": {docEmotions.sadness}		float
+		}
+	]
+
+};

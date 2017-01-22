@@ -1,15 +1,10 @@
 const util = require('util'),
 	twitter = require('twitter');
-
-//if(!process.env.CONSUMER_KEY){
- //var env = require('./env.js');
-//}
-const async = require('async');
 const twit= new twitter({
-	consumer_key: 'eId5b5VC8To8y39dYcLXSbrOF',
-	consumer_secret: 'NtlavHed2EoUiOQD0GPBNKbnObGqtGyHK9rFo3dmybObaqhCsP',
-	access_token_key: '822885003143028737-opYlFqI5z9qXgVrFtgFoV62tjWl1PiD',
-	access_token_secret: 'd920M4Pkk5KzQdjKRPBc60Xyx65fTqKz5u59ZguDwy5oI'
+	consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  	access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 const emojiStrip = require('emoji-strip');
@@ -48,5 +43,4 @@ function getTweet(req, res, next){
 	next();	
 });
 }
-
-modules.exports = getTweet
+modules.exports = getTweet;
