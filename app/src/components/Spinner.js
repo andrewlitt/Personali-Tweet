@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 
 class Spinner extends Component {
@@ -14,5 +15,4 @@ class Spinner extends Component {
 	}
 
 }
-
 module.exports = Spinner;

@@ -6,6 +6,7 @@ const Test = require('./Test');
 const SearchContainer = require('../containers/SearchContainer');
 const GraphContainer = require('../containers/GraphContainer');
 const Spinner = require('./Spinner');
+
 require("../styles/styletest.css");
 
 var Home = React.createClass({
@@ -42,6 +43,7 @@ var Home = React.createClass({
  		this.setState({
  		personalityData: data
  		});
+		console.log(data);
 	},
 
 	render() {
@@ -54,7 +56,7 @@ var Home = React.createClass({
 					</ul>
 					<h1 className={this.state.hasAnimated ? "logoText moveText" : "logoText"}>Personali-<span style={{fontFamily: 'Pacifico'}}>Tweet</span></h1>
 					<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
-					<SearchContainer 
+					<SearchContainer
 						startAnimation={this.startAnimation}
 						stopAnimation={this.stopAnimation}
 						handleClick={this.handleClick}
@@ -63,8 +65,8 @@ var Home = React.createClass({
 				</div>
 				<div className={this.state.hasAnimated ? "appearText bottomHalf" : "bottomHalf"}>
 					{
-						this.state.isLoading ? 
-							<Spinner /> : 
+						this.state.isLoading ?
+							<Spinner /> :
 							<GraphContainer Data={this.state.personalityData} />
 					}
 				</div>

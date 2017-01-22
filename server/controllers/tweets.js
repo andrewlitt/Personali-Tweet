@@ -10,7 +10,7 @@ const twit = new twitter({
 });
 
 function getTweet(req, res, next){
-	let newTweets;
+		let newTweets;
 
   	const params = {
         screen_name: req.params.user,
