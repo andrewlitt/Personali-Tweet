@@ -41,9 +41,19 @@ var Home = React.createClass({
 
 	updatePersonalityData(data) {
  		this.setState({
- 		personalityData: data
+ 			personalityData: data
  		});
 		console.log(data);
+	},
+
+	updateTweet(tweet) {
+		let newState = {
+			personalityData: this.state.personalityData
+		};
+
+		newState.personalityData.tweet = tweet;
+
+		this.setState(newState);
 	},
 
 	render() {
@@ -67,7 +77,10 @@ var Home = React.createClass({
 					{
 						this.state.isLoading ?
 							<Spinner /> :
-							<GraphContainer Data={this.state.personalityData} />
+							<GraphContainer 
+								Data={this.state.personalityData} 
+								updateTweet={this.updateTweet}
+							/>
 					}
 				</div>
 			</div>
