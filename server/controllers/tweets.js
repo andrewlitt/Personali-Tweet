@@ -1,41 +1,48 @@
-const util = require('util'),
-	twitter = require('twitter');
+const util = require('util');
+const twitter = require('twitter');
+const emojiStrip = require('emoji-strip');
 
-const twit= new twitter({
+const twit = new twitter({
 	consumer_key: process.env.TWITTER_CONSUMER_KEY,
   	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
   	access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
   	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-const emojiStrip = require('emoji-strip'),
-	emoji;
+function getTweet(req, res, next){	
+	let newTweets;
 
-var fs = require('fs');
-var logger = fs.createWriteStream('tweet.txt', {
-	flags: 'a'
-})
+  	const params = {
+        screen_name: req.params.user,
+        count: 200,
+        exclude_replies: true,
+        include_rts: false
+    };
 
-var res;
-var i;
-var newTweets;
-var allTweets = [];
-var oldest;
-var screenName = 'lindsaymullett'
-var params = {screen_name: screenName, count: 200, exclude_replies: true, include_rts:false};
+    twit.get('statuses/user_timeline', params, (error, tweets) => {
+        if(error) {
+            res.status(400).send(error);
+        } else {
+            const tweetsString = tweets.map((tweet) => {
+                return tweet.text;
+            }).join('\n');
 
+            let cleanedTweets;
 
-twit.get('statuses/user_timeline/trim_user=1', params, function(error, tweets, response) {
-for(i = 0; i < tweets.length; i ++){
-	res += tweets[i].text;
-	res += '\n';
+            try {
+                cleanedTweets = emojiStrip(tweetsString)
+                    .replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, '')
+                    .replace(/@([A-Za-z]+[A-Za-z0-9]+)/g, '')
+                    .replace(/#([A-Za-z]+[A-Za-z0-9]+)/g, '')
+                    .replace(/[^\x00-\x7F]+/g, '');
+            } catch (e) {
+                console.log('unable to clean tweets', e);
+            }
+
+            req.tweets = cleanedTweets;
+            next();
+        }
+    });
 }
-	res = emojiStrip(res);
-	res =  res.replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,"");
-	res = res.replace(/@([A-Za-z]+[A-Za-z0-9]+)/g,"");
-	res = res.replace(/#([A-Za-z]+[A-Za-z0-9]+)/g,"");
-	res = res.replace(/[^\x00-\x7F]+/g, "");
-	
-	logger.write(res);	
- });
 
+module.exports = getTweet;

@@ -108,52 +108,73 @@ Only maddy will get me through the next two years of school`;
 function user(req, res) {
 	const params = {
 		extract: 'authors,concepts,dates,doc-emotion,entities,feeds,keywords,pub-date,relations,typed-rels, doc-sentiment,taxonomy,title',
-	  	text: tweets
-	  	// text: req.tweets
+	  	text: req.tweets
 	};
 
 	alchemy_language.combined(params, function (err, response) {
 	  	if (err) {
-	    	res.status(500).send('error:', err);
+	    	res.status(400).send(err);
 	  	} else {
-	    	// res.json(response);
-	    	// res.json({
-	    	// 	tweet: req.generatedTweet,
-	    	// 	graphs: someGraphs
-	    	// });
-	    	// 
 	    	const emotionKeys = Object.keys(response.docEmotions);
 
-	    	res.json({
-	    		tweet: '',
-	    		graphs: {
-	    			graph1: [{
-	    				sentiment: response.docSentiment.type,
-	    				score: parseFloat(response.docSentiment.score)
+	    	const sentimentColours = [
+	    		'#00D10D',
+	    		'#FF0400',
+	    		'#FFF200'
+	    	];
 
-	    			}],
-	    			graph2: response.concepts.map((entry) => {
+	    	const conceptColours = [
+	    		'#8884D8',
+	    		'#83A6ED',
+	    		'#8DD1E1',
+	    		'#82CA9D',
+	    		'#A4DE6C',
+	    		'#D0ED57'
+	    	];
+
+	    	res.json({
+	    		tweet: req.generatedTweet,
+	    		graphs: {
+	    			sentimentData: [
+	    				{
+	    					name: 'Purely Positive Sentiment',
+	    					score: 1,
+	    					fill: sentimentColours[0]
+	    				},
+	    				{
+	    					name: 'Purely Negative Sentiment',
+	    					score: -1,
+	    					fill: sentimentColours[1]
+	    				},
+	    				{
+		    				sentiment: 'Sample Average Sentiment',
+		    				score: parseFloat(response.docSentiment.score),
+		    				fill: sentimentColours[2]
+	    				}
+	    			],
+	    			conceptData: response.concepts.slice(0, 6).map((entry, index) => {
 	    				return {
-	    					concept: entry.text,
-	    					relevance: parseFloat(entry.relevance)
+	    					name: entry.text,
+	    					relevance: parseFloat(entry.relevance),
+	    					fille: conceptColours[index]
 	    				}
 	    			}),
-	    			graph3: response.taxonomy.map((entry) =>{
+	    			taxData: response.taxonomy.map((entry) =>{
 	    				return {
 	    					label: entry.label,
 	    					score: parseFloat(entry.score)
 	    				}
 	    			}),
-	    			graph4: response.keywords.map((keyword) => {
+	    			keywordData: response.keywords.map((keyword) => {
 	    				return {
-	    					keyword: keyword.text,
-	    					relevance: parseFloat(keyword.relevance)
+	    					text: keyword.text,
+	    					value: parseFloat(keyword.relevance)
 	    				}
 	    			}),
-	    			radarData: emotionKeys.map((key) => {
+	    			emotionData: emotionKeys.map((key) => {
 	    				return {
-	    					emotion: key,
-	    					score: parseFloat(response.docEmotions[key])
+	    					name: key,
+	    					value: parseFloat(response.docEmotions[key])
 	    				}
 	    			})
 	    		}
