@@ -14,7 +14,6 @@ class Search extends Component {
 
 	handleChange(event) {
 		const url = `/api/search?q=${event.target.value}`;
-		console.log(url);
 		if(event.target.value.length > 0) {
 			axios.get(url)
 				.then((response) => {
