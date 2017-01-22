@@ -1,15 +1,11 @@
 const util = require('util'),
 	twitter = require('twitter');
 
-//if(!process.env.CONSUMER_KEY){
- //var env = require('./env.js');
-//}
-
 const twit= new twitter({
-	consumer_key: 'eId5b5VC8To8y39dYcLXSbrOF',
-	consumer_secret: 'NtlavHed2EoUiOQD0GPBNKbnObGqtGyHK9rFo3dmybObaqhCsP',
-	access_token_key: '822885003143028737-opYlFqI5z9qXgVrFtgFoV62tjWl1PiD',
-	access_token_secret: 'd920M4Pkk5KzQdjKRPBc60Xyx65fTqKz5u59ZguDwy5oI'
+	consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  	access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 const emojiStrip = require('emoji-strip'),
@@ -32,7 +28,7 @@ var params = {screen_name: screenName, count: 200, exclude_replies: true, includ
 twit.get('statuses/user_timeline/trim_user=1', params, function(error, tweets, response) {
 for(i = 0; i < tweets.length; i ++){
 	res += tweets[i].text;
-	res+="\n";
+	res += '\n';
 }
 	res = emojiStrip(res);
 	res =  res.replace(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,"");
@@ -41,7 +37,5 @@ for(i = 0; i < tweets.length; i ++){
 	res = res.replace(/[^\x00-\x7F]+/g, "");
 	
 	logger.write(res);	
-	//console.log(r);
-
  });
 
