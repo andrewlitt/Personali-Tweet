@@ -116,11 +116,48 @@ function user(req, res) {
 	  	if (err) {
 	    	res.status(500).send('error:', err);
 	  	} else {
-	    	res.json(response);
+	    	// res.json(response);
 	    	// res.json({
 	    	// 	tweet: req.generatedTweet,
 	    	// 	graphs: someGraphs
 	    	// });
+	    	// 
+	    	const emotionKeys = Object.keys(response.docEmotions);
+
+	    	res.json({
+	    		tweet: '',
+	    		graphs: {
+	    			graph1: [{
+	    				sentiment: response.docSentiment.type,
+	    				score: parseFloat(response.docSentiment.score)
+
+	    			}],
+	    			graph2: response.concepts.map((entry) => {
+	    				return {
+	    					concept: entry.text,
+	    					relevance: parseFloat(entry.relevance)
+	    				}
+	    			}),
+	    			graph3: response.taxonomy.map((entry) =>{
+	    				return {
+	    					label: entry.label,
+	    					score: parseFloat(entry.score)
+	    				}
+	    			}),
+	    			graph4: response.keywords.map((keyword) => {
+	    				return {
+	    					keyword: keyword.text,
+	    					relevance: parseFloat(keyword.relevance)
+	    				}
+	    			}),
+	    			radarData: emotionKeys.map((key) => {
+	    				return {
+	    					emotion: key,
+	    					score: parseFloat(response.docEmotions[key])
+	    				}
+	    			})
+	    		}
+	    	});
 		}
 	});
 }
