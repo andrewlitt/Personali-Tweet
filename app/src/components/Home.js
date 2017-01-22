@@ -54,7 +54,7 @@ var Home = React.createClass({
 						<li><a target="_blank" href="https://github.com/zackharley/ConUHacks">GITHUB</a></li>
 					</ul>
 					<h1 className={this.state.hasAnimated ? "logoText moveText" : "logoText"}>Personali-<span style={{fontFamily: 'Pacifico'}}>Tweet</span></h1>
-					<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets. Fast.</h2>
+					<h2 className={this.state.hasAnimated ? "infoText vanishText": "infoText"}>Language analysis of tweets.</h2>
 					<SearchContainer
 						startAnimation={this.startAnimation}
 						stopAnimation={this.stopAnimation}
