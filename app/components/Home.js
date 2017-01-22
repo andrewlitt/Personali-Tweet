@@ -1,8 +1,10 @@
-var React = require('react');
-var transparentBg = require('../styles').transparentBg;
-var ReactRouter = require('react-router');
-var Link = ReactRouter.Link;
-const Test = require('./Test')
+const React = require('react');
+const transparentBg = require('../styles').transparentBg;
+const ReactRouter = require('react-router');
+const Link = ReactRouter.Link;
+const Test = require('./Test');
+const SearchContainer = require('../containers/SearchContainer');
+const D3Container = require('../containers/D3Container');
 require("../styles/styletest.css");
 
 var Home = React.createClass({
@@ -17,19 +19,22 @@ var Home = React.createClass({
 	},
 	render() {
 		return (
-				<div className="mainContainer">
-				<div className='topHalf'>
-					<h1>PersonaliTweet</h1>
-					<p className='lead'> Fancy Motto </p>
-					<button type='button' className='' onClick={this.handleClick}> Search </button>
+			<div className='mainContainer' style={transparentBg}>
+				<div className="topHalf">
+						<h1 className='logoText'>Personali-Tweet</h1>
+						<SearchContainer handleClick={this.handleClick} />
 				</div>
-				<div className=''>
-					<p>Bottom div</p>
-					<Test isHidden={this.state.isHidden} />
+				<div className='bottomHalf'>
+					<center>
+						<Test isHidden={this.state.isHidden} />
+						<D3Container isHidden={this.state.isHidden} />
+					</center>
 				</div>
-				</div>
+			</div>
 		)
 	}
 
 });
+
+
 module.exports = Home;
