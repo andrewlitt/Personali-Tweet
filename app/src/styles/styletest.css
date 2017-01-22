@@ -190,6 +190,7 @@ h1,h2,h3,p{
 	font-family: "Montserrat";
 }
 .fakeTweetContainer {
+	background: white;
   display: inline-block;
   font-family: "Open Sans", Calibri, sans-serif;
   font-size: 12px;
@@ -206,7 +207,7 @@ h1,h2,h3,p{
 	position: absolute;
 	bottom: 0;
 	margin-left: auto;
-	background-color: white;
+	min-width: 350px;
 	z-index: 2;
 }
 
@@ -224,6 +225,7 @@ h1,h2,h3,p{
 	font-size: 12pt;
 }
 .fakeTweetHeader{
+	display: flex;
 	padding: 15px;
 }
 .grey{
@@ -245,4 +247,8 @@ h1,h2,h3,p{
 	justify-content: center;
 	margin-top: 100px;
 	transition: 2s;
+}
+
+.refresh {
+	margin-left: auto;
 }

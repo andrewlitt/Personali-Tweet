@@ -16,7 +16,13 @@ const GraphContainer = React.createClass({
                 <RadialGraph data={this.props.Data.graphs.conceptData}/>
                 <RadarGraph data={this.props.Data.graphs.taxData} />
                 <CloudGraph data={this.props.Data.graphs.keywordData}/>
-				<FakeTweet picture={this.props.Data.picture} name={this.props.Data.name} username={this.props.Data.username} tweet={this.props.Data.tweet} />
+				<FakeTweet 
+                    picture={this.props.Data.picture}
+                    name={this.props.Data.name}
+                    username={this.props.Data.username}
+                    tweet={this.props.Data.tweet}
+                    updateTweet={this.props.updateTweet}
+                />
             </div>
         ) : <div />;
     }
